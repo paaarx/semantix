@@ -14,35 +14,47 @@ Exemplo: Para realizar a contagem da palavra "spark" e contagem de hashtags, pod
 
 O mesmo código implementado em Spark é normalmente mais rápido que a implementação equivalente em MapReduce. Por quê?
 ```
-resposta_aqui
+Pois em MapReduce após as operações serem realizadas elas são persistidas em disco, então nas operações subsequentes, novamente deverá ler do disco esses dados, e no Spark não ocorre isso, os dados intermediários podem ser persistidos em memória e utilizados nas operações subsequentes, então há um ganho de performance, pois o throughput da leitura em memória é muito maior que em disco.
 ```
 
 Qual é a função do **SparkContext**?
 ```
-resposta_aqui
+É criar uma conexão com o cluster Spark, e pode ser usado para criar RDDs, accumulators e broadcast variables no cluster.
+Observação: Pode-se ter apenas um SparkContext ativo por JVM.
 ```
 
 Explique com suas palavras o que é **Resilient Distributed Datasets** (RDD).
 ```
-resposta_aqui
+RDD é uma abstração para processamento distribuído, como uma manual de instruções do que deve ser executado, onde o retorno é uma coleção imutável de objetos.
+Quanto as palavras da sigla, Resilient por ser tolerante a falhas, ou seja, caso ocorra algum problema em uma partição ele consegue recomputar o que estava realizando, Distributed pois acessa dados em diversos nodes e Dataset pois retorna a coleção imutável de objetos.
 ```
 
 **GroupByKey** é menos eficiente que **reduceByKey** em grandes dataset. Por quê?
 ```
-resposta_aqui
+Pois o GroupByKey mapeia e então envia todo o conteúdo obtido para o shuffling nos demais clusters, e o reduceByKey antes de enviar para o shuffling, ele mapeia e realiza um agrupamento prévio (um "pré-reduce"), então passa para os clusters apenas a contagem total.
+Exemplo: Quero somar quantas incidências há em SP e quantas no RJ.
+No cluster 1 temos, (1, SP), (1, SP), (1, SP), (1, RJ).
+No cluster 2 temos, , (1, SP), (1, RJ), (1, RJ).
+O GroupByKey enviaria para o Cluster 3 (1, SP), (1, SP), (1, SP), (1, SP) e para o Cluster 4 (1, RJ), (1, RJ), (1, RJ).
+O reduceByKey enviaria para o Cluster 3 (4, SP) e para o Cluster 4 (3, RJ).
+Conforme demonstrado acima, o GroupByKey enviaria os 7 registros (4 para um e 3 para outro) e o reduceByKey enviaria 2 (1 para cada).
 ```
 
 Explique o que o código Scala abaixo faz.
 ```scala
-val textFile = sc . textFile ( "hdfs://..." )
-val counts = textFile . flatMap ( line => line . split ( " " ))
-. map ( word => ( word , 1 ))
-. reduceByKey ( _ + _ )
-counts . saveAsTextFile ( "hdfs://..." )
+1. val textFile = sc.textFile ("hdfs://...")
+2. val counts = textFile . flatMap (line => line.split( " " ))
+3.     .map (word => ( word , 1 ))
+4.     .reduceByKey(_+_)
+5. counts.saveAsTextFile( "hdfs://..." )
 ```
 
 ```
-resposta_aqui
+1. Lê um arquivo de texto do HDFS e atribui a variável textFile.
+2. Salva o retorno das operações na variável counts. Realiza um flatmap (aplica uma transformação em cada elemento) no texto e então divide as palavras usando como delimitador o espaço.
+3. Faz um map (gera o par chave, valor) de quantas palavras encontrou através da divisão anterior.
+4. Para cada chave (word) ele realiza a soma.
+5. Salva o resultado do counts no HDFS como texto.
 ```
 
 ------------
