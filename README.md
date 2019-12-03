@@ -8,7 +8,8 @@
 
 Qual o objetivo do comando **cache** em Spark?
 ```
-resposta_aqui
+O objetivo é otimizar o desempenho de uma operação persistindo (caching) o resultado em memória, para que seja reutilizado futuramente, de forma a evitar o overhead ao realizar consultas em disco.
+Exemplo: Para realizar a contagem da palavra "spark" e contagem de hashtags, podemos inicialmente fazer uma transformação de todo o conteúdo do arquivo em minúsculo, realizar o cache dele, então podemos utilizar esse RDD em cache para fazer a contagem de palavras e de hashtags, evitando que seja necessário executar duas vezes (uma para a palavra e outra para hashtag) a operação de transformar em minúsculo o conteúdo do arquivo.
 ```
 
 O mesmo código implementado em Spark é normalmente mais rápido que a implementação equivalente em MapReduce. Por quê?
