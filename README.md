@@ -51,8 +51,8 @@ resposta_aqui
 **Fonte oficial do dateset:** [http://ita.ee.lbl.gov/html/contrib/NASA-HTTP.html](http://ita.ee.lbl.gov/html/contrib/NASA-HTTP.html "http://ita.ee.lbl.gov/html/contrib/NASA-HTTP.html")
 
 **Dados:**
-- [Jul 01 to Jul 31, ASCII format, 20.7 MB gzip compressed , 205.2 MB.](ftp://ita.ee.lbl.gov/traces/NASA_access_log_Jul95.gz "Jul 01 to Jul 31, ASCII format, 20.7 MB gzip compressed , 205.2 MB.")
-- [Aug 04 to Aug 31, ASCII format, 21.8 MB gzip compressed , 167.8 MB.](ftp://ita.ee.lbl.gov/traces/NASA_access_log_Aug95.gz "Aug 04 to Aug 31, ASCII format, 21.8 MB gzip compressed , 167.8 MB.")
+- [Jul 01 to Jul 31, ASCII format, 20.7 MB gzip compressed , 205.2 MB. (ftp://ita.ee.lbl.gov/traces/NASA_access_log_Jul95.gz)](ftp://ita.ee.lbl.gov/traces/NASA_access_log_Jul95.gz "Jul 01 to Jul 31, ASCII format, 20.7 MB gzip compressed , 205.2 MB.")
+- [Aug 04 to Aug 31, ASCII format, 21.8 MB gzip compressed , 167.8 MB. (ftp://ita.ee.lbl.gov/traces/NASA_access_log_Aug95.gz)](ftp://ita.ee.lbl.gov/traces/NASA_access_log_Aug95.gz "Aug 04 to Aug 31, ASCII format, 21.8 MB gzip compressed , 167.8 MB.")
 
 **Sobre o dataset:** Esses dois conjuntos de dados possuem todas as requisições HTTP para o servidor da NASA Kennedy Space Center WWW na Flórida para um período específico.
 
