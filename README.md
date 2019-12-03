@@ -81,12 +81,14 @@ Responda as seguintes questões devem ser desenvolvidas em Spark utilizando a su
 
 1. Número de hosts únicos.
 ```python
-print('resposta_aqui')
+# df.groupBy(colname).count().show()
 ```
 
 2. O total de erros 404.
 ```python
-print('resposta_aqui')
+# df.groupBy("return").count()
+#  .filter("count = 404")
+#  .show()
 ```
 
 3. Os 5 URLs que mais causaram erro 404.
@@ -96,10 +98,12 @@ print('resposta_aqui')
 
 4. Quantidade de erros 404 por dia.
 ```python
-print('resposta_aqui')
+# Regex para extrair a data
+# \[(.*?)\:
+# [01/Aug/1995:00:00:07 -0400]
 ```
 
 5. O total de bytes retornados.
 ```python
-print('resposta_aqui')
+# Somar a última coluna
 ```
