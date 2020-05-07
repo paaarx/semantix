@@ -64,8 +64,8 @@ Explique o que o código Scala abaixo faz.
 **Fonte oficial do dateset:** [http://ita.ee.lbl.gov/html/contrib/NASA-HTTP.html](http://ita.ee.lbl.gov/html/contrib/NASA-HTTP.html "http://ita.ee.lbl.gov/html/contrib/NASA-HTTP.html")
 
 **Dados:**
-- [Jul 01 to Jul 31, ASCII format, 20.7 MB gzip compressed , 205.2 MB. (ftp://ita.ee.lbl.gov/traces/NASA_access_log_Jul95.gz)](ftp://ita.ee.lbl.gov/traces/NASA_access_log_Jul95.gz "Jul 01 to Jul 31, ASCII format, 20.7 MB gzip compressed , 205.2 MB.")
-- [Aug 04 to Aug 31, ASCII format, 21.8 MB gzip compressed , 167.8 MB. (ftp://ita.ee.lbl.gov/traces/NASA_access_log_Aug95.gz)](ftp://ita.ee.lbl.gov/traces/NASA_access_log_Aug95.gz "Aug 04 to Aug 31, ASCII format, 21.8 MB gzip compressed , 167.8 MB.")
+- [NASA_access_log_Aug95.gz](NASA_access_log_Aug95.gz)
+- [NASA_access_log_Jul95.gz](NASA_access_log_Jul95.gz)
 
 **Sobre o dataset:** Esses dois conjuntos de dados possuem todas as requisições HTTP para o servidor da NASA Kennedy Space Center WWW na Flórida para um período específico.
 
@@ -79,31 +79,10 @@ Os logs estão em arquivos ASCII com uma linha por requisição com as seguintes
 ### Questões
 Responda as seguintes questões devem ser desenvolvidas em Spark utilizando a sua linguagem de preferência.
 
-1. Número de hosts únicos.
-```python
-# df.groupBy(colname).count().show()
-```
+* 1. Número de hosts únicos.
+* 2. O total de erros 404.
+* 3. Os 5 URLs que mais causaram erro 404.
+* 4. Quantidade de erros 404 por dia.
+* 5. O total de bytes retornados.
 
-2. O total de erros 404.
-```python
-# df.groupBy("return").count()
-#  .filter("count = 404")
-#  .show()
-```
-
-3. Os 5 URLs que mais causaram erro 404.
-```python
-print('resposta_aqui')
-```
-
-4. Quantidade de erros 404 por dia.
-```python
-# Regex para extrair a data
-# \[(.*?)\:
-# [01/Aug/1995:00:00:07 -0400]
-```
-
-5. O total de bytes retornados.
-```python
-# Somar a última coluna
-```
+O código com as respostas pode ser obtido no Notebook [semantix_teste_spark.ipynb](semantix_teste_spark.ipynb) ou pelo Notebook hospedado no [DataBricks](https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/7595947905727238/1667145015670894/2733465045966151/latest.html)
